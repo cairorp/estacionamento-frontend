@@ -1,0 +1,41 @@
+<html>
+<body>
+<form [formGroup]="cadastroEstacionamentoForm" (ngSubmit)="salvar()">
+  <div class="p-grid corpo-modal">
+    <div class=" p-col-12 p-mb-2 p-lg-12 p-mb-lg-0 patter-input">
+      <label class="panel-label titulo">Nome:</label>
+
+      <input class="form-control patter-input"
+             type="text"
+             formControlName="nome">
+    </div>
+    <div class="p-col-12 p-mb-2 p-lg-12 p-mb-lg-0 patter-input">
+      <label class="panel-label titulo">Total de vagas:</label>
+
+      <input class="form-control patter-input"
+             type="number"
+             formControlName="quantidadeVagas">
+    </div>
+  </div>
+  <div class="footer">
+    <div style="text-align: right !important; padding-top: 1%">
+      <button pButton
+              pRipple
+              type="button"
+              (click)="fechar()"
+              label="Cancelar"
+              class="p-button-outlined p-button-secondary button-cancelar">
+      </button>
+
+      <button pButton
+
+              type="onSubmit"
+              label="Confirmar"
+              class="p-button-secondary button-login button-confirmar"
+              [disabled]="cadastroEstacionamentoForm.invalid">
+      </button>
+    </div>
+  </div>
+</form>
+</body>
+</html>

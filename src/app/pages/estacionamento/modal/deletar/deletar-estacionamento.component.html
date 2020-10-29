@@ -1,0 +1,21 @@
+<div style="padding-top: 6%">
+  <h2>Tem certeza que deseja excluir o estacionamento [<b>{{estacionamento.nome}}</b>] ?</h2>
+</div>
+<div class="footer">
+  <div style="text-align: right !important; padding-top: 1%">
+    <button pButton
+            pRipple
+            type="button"
+            (click)="fechar()"
+            label="Cancelar"
+            class="p-button-outlined p-button-secondary button-cancelar">
+    </button>
+
+    <button pButton
+            type="button"
+            (click)="confirmar()"
+            label="Confirmar"
+            class="p-button-secondary button-login button-confirmar">
+    </button>
+  </div>
+</div>

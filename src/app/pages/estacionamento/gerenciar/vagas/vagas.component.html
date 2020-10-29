@@ -1,0 +1,36 @@
+<p-toast position="top-right"></p-toast>
+<div class="p-grid">
+  <div class="p-col painel-cadastro">
+    <button class="btn btn-dark botao-cadastro" (click)="voltar()">VOLTAR</button>
+    <button class="btn btn-dark botao-cadastro" style="margin-right: 1%" (click)="abrirModalGrafico()">ESTATISTICAS</button>
+  </div>
+</div>
+<mat-divider class="divisor"></mat-divider>
+<div class="p-grid painel-info">
+  <div class="p-col-4">
+    <b>Código: </b> {{estacionamento.id}}
+  </div>
+  <div class="p-col-4">
+    <b>Nome: </b> {{estacionamento.nome}}
+  </div>
+  <div class="p-col-4">
+    <b>Total de vagas: </b> {{totalVagas}}
+  </div>
+  <div class="p-col-6">
+    <b>Total de vagas ocupadas: </b> {{vagasOcupadas}}
+  </div>
+  <div class="p-col-6">
+    <b>Total de vagas disponíveis: </b> {{vagasDisponiveis}}
+  </div>
+</div>
+<mat-divider class="divisor"></mat-divider>
+
+<ol class="p-grid list-unstyled painel-vagas">
+
+  <li class="p-col-2 body-vaga"
+       (click)="alterarStatus(vaga)"
+       [ngStyle]="this.corVaga(vaga.status)"
+       *ngFor="let vaga of estacionamento.vagas">
+    <h1 class="font-vaga">{{vaga.posicao}}</h1>
+  </li>
+</ol>

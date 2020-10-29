@@ -1,0 +1,73 @@
+<html>
+<body>
+<p-toast position="top-right"></p-toast>
+<div class="p-grid">
+  <div class="p-col painel-cadastro">
+    <button class="btn btn-dark botao-cadastro" (click)="abrirModalCadastrar()">CADASTRAR</button>
+    <button class="btn btn-dark botao-cadastro" style="margin-right: 1%" (click)="abrirEstatisticas()">ESTATISTICAS</button>
+  </div>
+</div>
+<mat-divider class="divisor"></mat-divider>
+
+<div class="p-grid" style="margin-bottom: 15%">
+  <div class="p-col">
+
+    <p-table
+      class="table"
+      [value]="estacionamentos"
+      [paginator]=true
+      [rows]=10
+      showCurrentPageReport="true"
+      [rowsPerPageOptions]="[10,20,50]">
+
+      <ng-template pTemplate="header">
+
+        <tr class="thead-dark" style="border-left: solid 0.5px;
+                   border-top: solid 0.5px;
+                   border-right: solid 0.5px;">
+
+          <th pSortableColumn="id" class="header-table" style="text-align: center;">Código
+            <p-sortIcon field="id"></p-sortIcon>
+          </th>
+
+          <th pSortableColumn="nome" class="header-table" style="text-align: center;">Nome
+            <p-sortIcon field="nome"></p-sortIcon>
+          </th>
+
+          <th pSortableColumn="totalVagas" class="header-table" style="text-align: center;">QTD Vagas
+            <p-sortIcon field="totalVagas"></p-sortIcon>
+          </th>
+
+          <th class="header-table" style="text-align: center;">Ações</th>
+
+        </tr>
+
+      </ng-template>
+      <ng-template pTemplate="body" let-estacionamento>
+        <tr>
+          <td style="text-align: right;
+                     border-right: solid 0.5px;
+                     border-bottom: solid 0.5px;
+                     border-left: solid 0.5px;">{{estacionamento.id}}</td>
+
+          <td style="border-right: solid 0.5px;
+                     border-bottom: solid 0.5px;">{{estacionamento.nome}}</td>
+
+          <td style="text-align: right;
+                      border-right: solid 0.5px;
+                      border-bottom: solid 0.5px;">{{estacionamento.totalVagas}}</td>
+
+          <td style="text-align: center;
+                     border-right: solid 0.5px;
+                     border-bottom: solid 0.5px;">
+            <i class="pi pi-pencil icon-custom" (click)="abrirModalEditar(estacionamento)"></i>
+            <i class="pi pi-key icon-custom" (click)="abrirGerenciadorVagas(estacionamento.id)"></i>
+            <i class="pi pi-trash icon-custom" (click)="abrirConfirmarExclusao(estacionamento)"></i>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
+</body>
+</html>
